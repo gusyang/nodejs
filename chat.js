@@ -9,7 +9,11 @@ chatServer.on("connection",function(client){
 
 	//client.write("Bye!\n");
 	client.on("data",function(data){
-		broadcast(data,client);
+		//broadcast(data,client);
+		for(var i=0; i<clientList.length; i+=1){
+			if(client != clientList[i])
+			clientList[i].write(client.name + " Say " + data);
+		}
 	});
 });
 
@@ -20,5 +24,8 @@ function broadcast(message,client){
 			clientList[i].write(client.name + " Says " + message);
 		}
 		console.log(data);
+	
 }
+
 chatServer.listen(9000);
+console.log("listening on port:9000");
