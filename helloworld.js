@@ -1,6 +1,9 @@
 var http = require("http");
+var url = require("url");
+var util = require("util");
+
 http.createServer(function(req,res){
 	res.writeHead(200,{"Content-Type":"text/plain"});
-	res.end("Hello World!");
+	res.end(util.inspect(url.parse(req.url,true)));
 }).listen(3000);
 console.log("sever running at 3000");
