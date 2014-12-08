@@ -31,28 +31,28 @@
 15 silly addNameRange { name: 'express', range: '*', hasData: false }
 16 verbose request where is /express
 17 verbose request registry https://registry.npmjs.org/
-18 verbose request id d3ddc2dc10c0bebd
+18 verbose request id 350c3678e79891d8
 19 verbose url raw /express
 20 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
 21 verbose url resolved https://registry.npmjs.org/express
 22 verbose request where is https://registry.npmjs.org/express
-23 info trying registry request attempt 1 at 22:13:32
+23 info trying registry request attempt 1 at 17:58:51
 24 http GET https://registry.npmjs.org/express
 25 http 200 https://registry.npmjs.org/express
 26 silly registry.get cb [ 200,
-26 silly registry.get   { date: 'Tue, 02 Dec 2014 06:13:33 GMT',
+26 silly registry.get   { date: 'Mon, 08 Dec 2014 01:58:52 GMT',
 26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-26 silly registry.get     etag: '"1NWUKWWZGDQLOPZ5NTV01EIFD"',
+26 silly registry.get     etag: '"9LUUNT9HE8UXGNDH6PSMJRURT"',
 26 silly registry.get     'content-type': 'application/json',
 26 silly registry.get     'cache-control': 'max-age=60',
-26 silly registry.get     'content-length': '431387',
+26 silly registry.get     'content-length': '431558',
 26 silly registry.get     'accept-ranges': 'bytes',
 26 silly registry.get     via: '1.1 varnish',
-26 silly registry.get     age: '38',
-26 silly registry.get     'x-served-by': 'cache-sjc3124-SJC',
+26 silly registry.get     age: '3',
+26 silly registry.get     'x-served-by': 'cache-sjc3129-SJC',
 26 silly registry.get     'x-cache': 'HIT',
-26 silly registry.get     'x-cache-hits': '2',
-26 silly registry.get     'x-timer': 'S1417500813.574883,VS0,VE0',
+26 silly registry.get     'x-cache-hits': '1',
+26 silly registry.get     'x-timer': 'S1418003932.009283,VS0,VE1',
 26 silly registry.get     vary: 'Accept',
 26 silly registry.get     'keep-alive': 'timeout=10, max=50',
 26 silly registry.get     connection: 'Keep-Alive' } ]
@@ -279,8 +279,8 @@
 34 verbose lock https://registry.npmjs.org/express/-/express-4.10.4.tgz /home/gus/.npm/65e17ce9-s-org-express-express-4-10-4-tgz.lock
 35 verbose addRemoteTarball [ 'https://registry.npmjs.org/express/-/express-4.10.4.tgz',
 35 verbose addRemoteTarball   '31aa70acdad6b6093945c30523df8537336deb58' ]
-36 info retry fetch attempt 1 at 22:13:35
-37 verbose fetch to= /tmp/npm-2935-STl7mC8v/registry.npmjs.org/express/-/express-4.10.4.tgz
+36 info retry fetch attempt 1 at 17:58:52
+37 verbose fetch to= /tmp/npm-3704-BtTTAhGa/registry.npmjs.org/express/-/express-4.10.4.tgz
 38 http GET https://registry.npmjs.org/express/-/express-4.10.4.tgz
 39 http 200 https://registry.npmjs.org/express/-/express-4.10.4.tgz
 40 silly lockFile 65e17ce9-s-org-express-express-4-10-4-tgz https://registry.npmjs.org/express/-/express-4.10.4.tgz
@@ -406,9 +406,9 @@
 56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
 56 error      'Object.oncomplete (fs.js:107:15)' ] }
 57 error Please try running this command again as root/Administrator.
-58 error System Linux 2.6.32-431.3.1.el6.i686
+58 error System Linux 3.13.0-40-generic
 59 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "express"
-60 error cwd /home/gus/node/nodejs
+60 error cwd /home/gus/node/code/nodejs
 61 error node -v v0.10.33
 62 error npm -v 1.4.28
 63 error path /usr/local/lib/node_modules/express
