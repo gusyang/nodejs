@@ -1,42 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <% include head %>
-    </head>
-    <body>
-    <header>
-       <% include header %>
-    </header>
-    <div class="jumbotron">
-        <div class="container">
-             <h1>This is Micro Blog</h1>
-             <p>Welcome to cool micro blog demo</p>
-             <a class="btn btn-primary btn-lg" href="login" role="button">Login</a>
-             <a class="btn btn-lg" href="/reg" role="button">Enroll</a>
-         </div>
-     </div>
+<% if(!user){ %>   
+<div class="jumbotron">
      <div class="container">
-         <div class="row">
-             <div class="col-md-4">
-                 <h2>Heading</h2>
-                 <p>this is a demo, just for learning node</p>
-                 <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-            </div>
-             <div class="col-md-4">
-                 <h2>Heading</h2>
-                 <p>this is a demo, just for learning node</p>
-                 <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-            </div>
-             <div class="col-md-4">
-                 <h2>Heading</h2>
-                 <p>this is a demo, just for learning node</p>
-                 <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a>
-            </div>
-        </div>
-        <hr>
-        <footer>
-        <% include footer %>
-     </footer>  
-    </div> 
-     </body>
-</html>
+         <h1>This is Micro Blog</h1>
+         <p>Welcome to cool micro blog demo</p>
+         <a class="btn btn-primary btn-lg" href="login" role="button">Login</a>
+         <a class="btn btn-lg" href="/reg" role="button">Enroll</a>
+     </div>
+ </div>
+ <%} else { %>
+ <% include say %>
+ <% } %>
+ <% include posts %>
