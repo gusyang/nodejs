@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -10,56 +10,58 @@ var users = require('./routes/users');
 
 var app = express();
 
-var flash = require("connect-flash");
+var flash = require('connect-flash');
 app.use(flash());
 
-var session = require("express-session");
-var mongostore = require("connect-mongo")(session);
-var settings = require("./conf/db-mongo");
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var settings = require('./settings');
 
-// view engine setup
+// view enddgine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-var partials = require("express-partials");
-app.use(partials);
+var partials = require('express-partials');
+app.use(partials());
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({
-    secret: settings.cookieSecret,
-    store: new mongostore({
-        db: settings.db
-    })
+	secret: settings.cookieSecret,
+	store: new MongoStore({
+		db: settings.db
+	})
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req,res,next){
-    res.locals.user = req.session.user;
-    var error = req.flash("error");
-    var success = req.flash("success");
-    res.locals.error = error.length ? error : null;
-    res.locals.success = success.length ? success : null;
-    next();
+
+
+app.use(function(req, res, next){
+  res.locals.user = req.session.user;
+  var error = req.flash('error');
+  var success = req.flash('success');
+   res.locals.error = error.length ? error : null;
+  res.locals.success = success.length ? success : null;
+  next();
 });
 
 app.use('/', routes);
 app.use('/users', users);
 
-app.listen(3000);
-console.log("here you go!");
-// catch 404 and forward to error handler
+//app.listen(3000);
+console.log("come on baby");
+
+/// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-// error handlers
+/// error handlers
 
 // development error handler
 // will print stacktrace
@@ -82,6 +84,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;
