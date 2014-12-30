@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 			posts= [];
 		}
 		res.render('index', { 
-			title: '首页' ,
+			title: 'Homepage' ,
 			posts: posts,
 		});
 	});
@@ -21,18 +21,18 @@ router.get('/', function(req, res) {
 router.get('/reg', checkNotLogin);
 
 router.get('/reg', function(req, res) {
-	res.render('reg', { title: '用户注册' });
+	res.render('reg', { title: 'User Reg' });
 });
 
 router.post('/reg', checkNotLogin);
 
 router.post('/reg', function(req ,res) {
-	//检验用户两次输入的口令是否一致
+	//check password 
 	if (req.body['password-repeat'] != req.body['password']) {
-		req.flash('error', '两次输入的口令不一致');
+		req.flash('error', 'password not equal');
 		return res.redirect('/reg');
 	}
-	//生成口令的散列值
+	//gen md5 password
 	var md5 = crypto.createHash('md5');
 	var password = md5.update(req.body.password).digest('base64');
 	var newUser = new User({
@@ -40,7 +40,7 @@ router.post('/reg', function(req ,res) {
 		password: password,
 	});
 	console.log('0');
-	//检查用户名是否已经存在
+	//check user 
 	User.get(newUser.name, function(err, user) {
 		if (user)
 			err = 'Username already exists.';
@@ -49,7 +49,7 @@ router.post('/reg', function(req ,res) {
 			return res.redirect('/reg');
 		}
 		console.log('1');
-		//如果不存在则新增用户
+		//add new user if doesnt exists
 		newUser.save(function(err) {
 			console.log('2');
 			if (err) {
@@ -59,7 +59,7 @@ router.post('/reg', function(req ,res) {
 			}
 			console.log('4');
 			req.session.user = newUser;
-			req.flash('success', '注册成功');
+			req.flash('success', 'Reg Success!');
 			res.redirect('/');
 		});
 	});
@@ -68,26 +68,26 @@ router.post('/reg', function(req ,res) {
 router.get('/login', checkNotLogin);
 
 router.get('/login', function(req, res) {
-	res.render('login', { title: '用户登入',});
+	res.render('login', { title: 'User Login',});
 });
 
 router.post('/login', checkNotLogin);
 
 router.post('/login', function(req, res) {
-	//生成口令的散列值
+	//generate md5
 	var md5 = crypto.createHash('md5');
 	var password = md5.update(req.body.password).digest('base64');
 	User.get(req.body.username, function(err, user) {
 		if (!user) {	
-			req.flash('error', '用户不存在');
+			req.flash('error', 'User does not exists');
 			return res.redirect('/login');
 		}
 		if (user.password != password) {
-			req.flash('error', '用户口令错误');
+			req.flash('error', 'Password error..');
 			res.redirect('/login');
 		}
 		req.session.user = user;
-		req.flash('success', '登入成功');
+		req.flash('success', 'Login Success.');
 		res.redirect('/');
 	});
 });
@@ -96,7 +96,7 @@ router.get('/logout', checkLogin);
 
 router.get('/logout', function(req,res) {
 	req.session.user = null;
-	req.flash('success', '登出成功');
+	req.flash('success', 'Logout Success');
 	res.redirect('/');
 });
 
@@ -105,7 +105,7 @@ router.get('/logout', function(req,res) {
 router.get('/u/:user', function(req, res) {
 	User.get(req.params.user, function(err, user) {
 		if(!user) {
-			req.flash('error', '用户不存在');
+			req.flash('error', 'User does not exist');
 			return res.redirect('/');
 		}
 		Post.get(user.name, function(err, posts) {
@@ -131,7 +131,7 @@ router.post('/post', function(req, res) {
 			req.flash('error', err);
 			return res.redirect('/');
 		}
-		req.flash('success', '发表成功');
+		req.flash('success', 'Post success');
 		res.redirect('/u/' + currentUser.name);
 	});
 });
@@ -139,7 +139,7 @@ router.post('/post', function(req, res) {
 
 function checkLogin(req, res, next){
 	if(!req.session.user){
-		req.flash('error', '未登入');
+		req.flash('error', 'Not login');
 		return res.redirect('/login');
 	}
 	next();
@@ -147,7 +147,7 @@ function checkLogin(req, res, next){
 
 function checkNotLogin(req, res, next) {
 	if(req.session.user){
-		req.flash('error', '已登入');
+		req.flash('error', 'Login');
 		return res.redirect('/');
 	}
 	next();
