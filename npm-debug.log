@@ -1,29 +1,86 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
-1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'start' ]
-2 info using npm@1.4.3
-3 info using node@v0.10.26
-4 verbose node symlink C:\Program Files\nodejs\\node.exe
-5 verbose run-script [ 'prestart', 'start', 'poststart' ]
-6 info prestart microblog@0.0.1
-7 info start microblog@0.0.1
-8 verbose unsafe-perm in lifecycle true
-9 info microblog@0.0.1 Failed to exec start script
-10 error microblog@0.0.1 start: `node ./bin/www`
-10 error Exit status 8
-11 error Failed at the microblog@0.0.1 start script.
-11 error This is most likely a problem with the microblog package,
-11 error not with npm itself.
-11 error Tell the author that this fails on your system:
-11 error     node ./bin/www
-11 error You can get their info via:
-11 error     npm owner ls microblog
-11 error There is likely additional logging output above.
-12 error System Windows_NT 6.1.7601
-13 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "start"
-14 error cwd D:\learn\Nodejs\github\nodejs\ebook\microblog
-15 error node -v v0.10.26
-16 error npm -v 1.4.3
-17 error code ELIFECYCLE
-18 verbose exit [ 1, true ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'js-bson' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'js-bson', null ]
+5 verbose cache add name=undefined spec="js-bson" args=["js-bson",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'js-bson',
+6 verbose parsed url   path: 'js-bson',
+6 verbose parsed url   href: 'js-bson' }
+7 silly lockFile 39987484-js-bson js-bson
+8 verbose lock js-bson /home/gus/.npm/39987484-js-bson.lock
+9 silly lockFile 39987484-js-bson js-bson
+10 silly lockFile 39987484-js-bson js-bson
+11 verbose addNamed [ 'js-bson', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile a5c0f890-js-bson js-bson@
+14 verbose lock js-bson@ /home/gus/.npm/a5c0f890-js-bson.lock
+15 silly addNameRange { name: 'js-bson', range: '*', hasData: false }
+16 verbose request where is /js-bson
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 8da1be18122647b7
+19 verbose url raw /js-bson
+20 verbose url resolving [ 'https://registry.npmjs.org/', './js-bson' ]
+21 verbose url resolved https://registry.npmjs.org/js-bson
+22 verbose request where is https://registry.npmjs.org/js-bson
+23 info trying registry request attempt 1 at 10:48:46
+24 http GET https://registry.npmjs.org/js-bson
+25 http 404 https://registry.npmjs.org/js-bson
+26 verbose headers { date: 'Sun, 04 Jan 2015 18:48:47 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '52',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   age: '0',
+26 verbose headers   'x-served-by': 'cache-ord1734-ORD',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1420397327.126417,VS0,VE31',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Sun, 04 Jan 2015 18:48:47 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '52',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-ord1734-ORD',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1420397327.126417,VS0,VE31',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile a5c0f890-js-bson js-bson@
+29 silly lockFile a5c0f890-js-bson js-bson@
+30 error 404 404 Not Found: js-bson
+30 error 404
+30 error 404 'js-bson' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.13.0-40-generic
+32 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "js-bson"
+33 error cwd /home/gus/node/code/nodejs
+34 error node -v v0.10.33
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]
