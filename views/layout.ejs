@@ -27,8 +27,9 @@
         <li class="active"><a href="/">Home Page</a></li>
 		<% if (!user) { %>
 		<li><a href="/login">Login</a></li>
-		<li><a href="/reg">Reg</a></li?
+		<li><a href="/reg">Reg</a></li>
 		<% } else { %>
+        <li><a href="/users">User Profile</li>
 		<li><a href="/logout">Log Out</a></li>
 		<F2><% } %>
         </ul>

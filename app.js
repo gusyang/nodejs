@@ -52,7 +52,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 //app.listen(3000);
-console.log("come on baby");
+console.log("begin now...");
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
