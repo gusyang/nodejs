@@ -5,7 +5,10 @@ router.get('/', function(req, res){
     console.log("user");
     var currentUser = req.session.user;
     
-  res.render("userprofile",{title:currentUser.name,});
+  res.render("userprofile",{
+      title:currentUser.name,
+      cpage:'users'
+  });
 });
 
 

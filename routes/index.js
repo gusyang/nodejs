@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
 		res.render('index', { 
 			title: 'Homepage' ,
 			posts: posts,
+            cpage:'home'
 		});
 	});
 });
@@ -21,7 +22,9 @@ router.get('/', function(req, res) {
 router.get('/reg', checkNotLogin);
 
 router.get('/reg', function(req, res) {
-	res.render('reg', { title: 'User Reg' });
+	res.render('reg', {
+        title: 'User Reg',
+        cpage:'reg'});
 });
 
 router.post('/reg', checkNotLogin);
@@ -68,7 +71,10 @@ router.post('/reg', function(req ,res) {
 router.get('/login', checkNotLogin);
 
 router.get('/login', function(req, res) {
-	res.render('login', { title: 'User Login',});
+	res.render('login', {
+        title: 'User Login',
+        cpage:'login'
+    });
 });
 
 router.post('/login', checkNotLogin);
@@ -116,6 +122,7 @@ router.get('/u/:user', function(req, res) {
 			res.render('user',{
 				title: user.name,
 				posts: posts,
+                cpage:'user'
 			});
 		});
 	});
