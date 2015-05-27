@@ -3,9 +3,11 @@ nodejs
 
 for node js demo project only
 
-=====use redis auth use <mranney/node_redis>===
+=====use redis auth use mranney/node_redis ===
 * redis.conf
+
     requirepass gus
+    
   then start redis with redis-server ./redis.config
 
   > option 1: add pwd when createClient
